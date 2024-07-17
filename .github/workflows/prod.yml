@@ -28,7 +28,7 @@ jobs:
           settings: 'sftp:auto-confirm=yes'
           # Mirror command options
           localDir: '.'
-          remoteDir: '/home/deploy/tmp/'
+          remoteDir: '/home/deploy/tmp'
           reverse: true
           forceSSL: false
           verifyCertificate: false
