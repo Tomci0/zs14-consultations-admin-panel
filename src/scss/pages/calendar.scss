@@ -1,0 +1,187 @@
+#calendar {
+    border-collapse: separate; // Umożliwia zaokrąglenie rogów
+    border-radius: 10px; // Zaokrąglone rogi
+    overflow: hidden; // Ukrywa nadmiar treści poza zaokrąglonymi rogami]
+    width: 100%;
+}
+
+#calendar-table {
+    border-collapse: separate; // Umożliwia zaokrąglenie rogów
+    border-radius: 10px; // Zaokrąglone rogi
+    overflow: hidden; // Ukrywa nadmiar treści poza zaokrąglonymi rogami]
+    width: 100%;
+
+    outline: none;
+    border: none;
+
+    tbody, td, tfoot, th, thead, tr {
+        border: none;
+    }
+
+    tbody {
+        tr {
+            td {
+                width: 14.285714285714285714285714285714%;
+            }
+        }
+    }
+
+    tr {
+        td {
+            box-shadow: var(--calendar-shadow);
+        }
+
+        &:last-child {
+            td {
+                &:first-child {
+                    border-bottom-left-radius: 10px;
+                }
+                &:last-child {
+                    border-bottom-right-radius: 10px;
+                }
+            }
+        }
+    }
+
+    thead {
+        tr:first-child {
+            th {
+                &:first-child {
+                    border-top-left-radius: 10px; // Lewy górny róg
+                }
+                &:last-child {
+                    border-top-right-radius: 10px; // Prawy górny róg
+                }
+            }
+        }
+    }
+
+    .day-month {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: 25px;
+        margin-bottom: 0.50rem;
+
+        span {
+            font-size: 14px;
+        }
+
+        .day {
+            position: absolute;
+            border-radius: 5px;
+            width: 22px;
+            height: 22px;
+            text-align: center;
+            box-shadow: var(--calendar-day-number-shadow);
+
+            &.active {
+                background-color: #3b933f;
+                color: #fff;
+                font-weight: 500;
+            }
+        }
+    }
+
+    .plate-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        font-size: 11px;
+
+        .value {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.25rem;
+        }
+
+        .plate {
+            display: flex;
+            flex-direction: column;
+            border-left: solid 4px transparent;
+            padding: 5px;
+            line-height: 12px;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+            border-radius: 5px;
+            background: var(--calendar-plate-bg);
+            color: inherit; // Ustawia kolor tekstu na taki sam jak element nadrzędny
+            text-decoration: none; // Usuwa podkreślenie
+            transition: 0.2s;
+
+            &.collapsed {
+                background-color: var(--calendar-plate-active-bg) !important;
+            }
+
+            &:hover {
+                background-color: var(--calendar-plate-hover-bg);
+            }
+
+            &.my-consultation {
+                background-color: rgba(0,0,0,0.1);
+            }
+
+            .time {
+                font-weight: 600;
+            }
+
+            &.green {
+                border-color: #3b933f;
+            }
+
+            &.yellow {
+                border-color: #d8d402;
+            }
+
+            &.red {
+                border-color: #ff0000;
+            }
+
+            &.blue {
+                border-color: #00a2ff;
+            }
+
+            &.purple {
+                border-color: #a200ff;
+            }
+
+            &.turquoise {
+                border-color: #497E76;
+            }
+
+            &.orange {
+                border-color: #FFA500;
+            }
+
+            &.brown {
+                border-color: #A52A2A;
+            }
+
+            &.pink {
+                border-color: #FFC0CB;
+            }
+
+            &.sea-blue {
+                border-color: #256D7B;
+            }
+        }
+
+        .collapse .plate, .collapsing .plate {
+            margin-left: 0.50rem;
+        }
+    }
+}
+
+a {
+    &:active, &:focus { 
+        outline: 0;
+        color: var(--text-hover);
+    }
+}
+
+.table {
+    >:not(caption) > * > * {
+        background-color: var(--background);
+    }
+}

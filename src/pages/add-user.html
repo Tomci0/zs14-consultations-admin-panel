@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pl" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- BOOTSTRAP -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- DATEPICKER -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/air-datepicker@3.5.3/air-datepicker.min.css">
+
+    <!-- OTHER CSS -->
+
+    <link rel="stylesheet" href="/css/main.min.css">
+    <link rel="stylesheet" href="/css/pages/add-user.min.css">
+
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+
+    <!-- @@include('sidebar.html') -->
+
+    <div id="content">
+        <!-- PAGE CONTENT -->
+
+        <!-- @@include('topbar.html') -->
+
+        <div id="page-content" class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="title">
+                                Tworzenie Klasy
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form id="add-user">
+                                <div id="add-user-form-carousel" class="carousel slide" data-bs-config='{"keyboard": "false", ride: "false", "touch": "false", "wrap": "false"}'>
+                                    <div class="carousel-inner">
+
+                                        <!-- FIRST PAGE -->
+                                        <!-- DATE OF CONSULTATIONS -->
+
+                                        <div class="carousel-item active">
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="stage-title">
+                                                        <span class="icon iconify" data-icon="mdi:info"></span>
+                                                        <span class="title">Podaj Informacje o uczniu (-ach)</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div id="users">
+                                                        <div class="user">
+                                                            <a class="remove-btn link">
+                                                                <span class="icon iconify" data-icon="mdi:close"></span>
+                                                            </a>
+                                                            <div class="item">
+                                                                <label for="user-firstname" class="form-label">Imie Ucznia</label>
+                                                                <input type="text" class="form-control" id="user-name" aria-describedby="emailHelp">
+                                                            </div>
+                                                            <div class="item">
+                                                                <label for="user-surname" class="form-label">Nazwisko Ucznia</label>
+                                                                <input type="text" class="form-control" id="user-surname" aria-describedby="emailHelp">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- SECOND PAGE -->
+                                        <!-- PREVIEW AND CONFIRM PAGE -->
+
+                                        <div class="carousel-item">
+                                            <div class="row mb-3">
+                                                <div class="col">
+                                                    <div class="stage-title">
+                                                        <span class="icon iconify" data-icon="mdi:info"></span>
+                                                        <span class="title">Koncowe Informacje</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div id="info">
+                                                        <div class="item">
+                                                            <span class="icon iconify" data-icon="mdi:account-group"></span>
+                                                            <span class="title">Symbol Klasy:</span>
+                                                            <span class="value">3A</span>
+                                                        </div>
+
+                                                        <div class="item">
+                                                            <span class="icon iconify" data-icon="mdi:account-group"></span>
+                                                            <span class="title">Profil Klasy:</span>
+                                                            <span class="value">Technik Informatyk</span>
+                                                        </div>
+
+                                                        <div class="item">
+                                                            <span class="icon iconify" data-icon="mdi:account-group"></span>
+                                                            <span class="title">Wychowawca:</span>
+                                                            <span class="value">Brak</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="indicators">
+                                        <div class="carousel-buttons">
+                                            <button id="prev-btn" class="btn btn-prev" data-bs-target="#add-class-form-carousel" data-bs-slide="prev">
+                                                <span class="icon iconify" data-icon="mdi:arrow-left"></span>
+                                                <span class="title">Wróć</span>
+                                            </button>
+                                            <button id="next-btn" class="btn btn-next" data-bs-target="#add-class-form-carousel" data-bs-slide="next">
+                                                <span class="title">Dalej</span>
+                                                <span class="icon iconify" data-icon="mdi:arrow-right"></span>
+                                            </button>
+                                            <button id="create-class-btn" class="btn btn-next d-none">
+                                                <span class="icon iconify" data-icon="mdi:flag-checkered"></span>
+                                                <span class="title">Zakoncz</span>
+                                            </button>
+                                        </div>
+                                        <div class="carousel-indicators">
+                                            <button type="button" disabled data-bs-target="#add-class-form-carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                                            <button type="button" disabled data-bs-target="#add-class-form-carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 
+
+        SCRIPTS
+
+    -->
+
+    <!-- BOOTSTRAP -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <!-- JQUERY -->
+ 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+ 
+    <!-- ICONIFY -->
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js" integrity="sha512-lYMiwcB608+RcqJmP93CMe7b4i9G9QK1RbixsNu4PzMRJMsqr/bUrkXUuFzCNsRUo3IXNUr5hz98lINURv5CNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- MARKDOWN -->
+
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+
+
+    <!-- OWN SCRIPTS -->
+
+    <script src="/js/main.min.js"></script>
+    <script type="module" src="/js/pages/add-user.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+/* base/_theme.dark.scss */
+
+/* Dark Theme Variables */
+$dark-text-color: #ffffffde;
+$dark-text-secondary: #404040;
+$dark-text-hover: #2fa255;
+$dark-btn-shadow: -1px 1px 5px 0px #0000004f;
+$dark-theme-color: #019232 !important;
+$dark-background: #191919;
+$dark-sidebar-bg: #232323;
+$dark-sidebar-shadow: inset 0px 1px 5px 0px #000;
+$dark-divdiver-color: rgba(255, 255, 255, 0.4);
+$dark-navigation-item-bg: #2e2e2e;
+$dark-navigation-item-border-radius: 15px;
+$dark-navigation-item-icon-bg: $dark-sidebar-bg;
+$dark-navigation-item-hover-bg: $dark-theme-color;
+$dark-navigation-item-active-bg: $dark-theme-color;
+$dark-navigation-item-shadow: $dark-btn-shadow;
+$dark-topbar-background: $dark-background;
+$dark-notify-dot: rgba(1, 146, 49, 0.8);
+$dark-notify-icon-color: #ffffffde;
+$dark-card-bg: #232323;
+$dark-card-btn-bg: rgba(1, 146, 49, 0.2);
+$dark-card-btn-hover-bg: rgba(1, 146, 49, 0.5);
+$dark-card-item-bg: #2e2e2e;
+$dark-card-item-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.6);
+$dark-card-item-hover-bg: rgba(1, 146, 49, 0.3);
+$dark-dropdown-shadow: 0px 0px 4px 0px #000;
+$dark-dropdown-background: $dark-sidebar-bg;
+$dark-notify-more-btn: rgba(5, 99, 36, 0.3);
+$dark-notify-more-hover-btn: rgba(1, 146, 49, 0.5);
+$dark-notify-more-active-icon: rgba(1, 146, 49, 0.8);
+$dark-notify-more-border-radius: 15px;
+$dark-notification-item-bg: #2e2e2e;
+$dark-notification-item-hover-bg: rgba(46, 46, 46, 0.6);
+$dark-chart-track-color: rgba(1, 146, 49, 0.8);
+
+$dark-modal-background: #{$dark-background};
+$dark-modal-header-background: url('/images/background.jpg');
+$dark-modal-box-shadow: 0px 0px 4px 0px #000;
+
+$dark-btn-accept-color: #019232;
+$dark-btn-decline-color: #be0000;
+
+$dark-checkbox-bg-color: #232323;
+$dark-checkbox-box-shadow: 0px 1px 2px 0px #000;
+
+$dark-datepicker-bg: #191919;
+
+$dark-btn-next-bg: #{$dark-theme-color};
+$dark-btn-prev-bg: #be0000;
+
+$dark-indicator-bg: #191919;
+$dark-indicator-active-bg: #{$dark-theme-color};
+
+$dark-input-disabled: rgba($dark-text-color, 0.6);
+
+html[data-bs-theme="dark"] {
+  --text-color: #{$dark-text-color};
+  --text-secondary: #{$dark-text-secondary};
+  --text-hover: #{$dark-text-hover};
+  --btn-shadow: #{$dark-btn-shadow};
+  --theme-color: #{$dark-theme-color};
+  --background: #{$dark-background};
+  --sidebar-bg: #{$dark-sidebar-bg};
+  --sidebar-shadow: #{$dark-sidebar-shadow};
+  --divdiver-color: #{$dark-divdiver-color};
+  --navigation-item-bg: #{$dark-navigation-item-bg};
+  --navigation-item-border-radius: #{$dark-navigation-item-border-radius};
+  --navigation-item-icon-bg: #{$dark-navigation-item-icon-bg};
+  --navigation-item-hover-bg: #{$dark-navigation-item-hover-bg};
+  --navigation-item-active-bg: #{$dark-navigation-item-active-bg};
+  --navigation-item-shadow: #{$dark-navigation-item-shadow};
+  --topbar-background: #{$dark-topbar-background};
+  --notify-dot: #{$dark-notify-dot};
+  --notify-icon-color: #{$dark-notify-icon-color};
+  --card-bg: #{$dark-card-bg};
+  --card-btn-bg: #{$dark-card-btn-bg};
+  --card-btn-hover-bg: #{$dark-card-btn-hover-bg};
+  --card-item-bg: #{$dark-card-item-bg};
+  --card-item-shadow: #{$dark-card-item-shadow};
+  --card-item-hover-bg: #{$dark-card-item-hover-bg};
+  --dropdown-shadow: #{$dark-dropdown-shadow};
+  --dropdown-background: #{$dark-dropdown-background};
+  --notify-more-btn: #{$dark-notify-more-btn};
+  --notify-more-hover-btn: #{$dark-notify-more-hover-btn};
+  --notify-more-active-icon: #{$dark-notify-more-active-icon};
+  --notify-more-border-radius: #{$dark-notify-more-border-radius};
+  --notification-item-bg: #{$dark-notification-item-bg};
+  --notification-item-hover-bg: #{$dark-notification-item-hover-bg};
+  --chart-track-color: #{$dark-chart-track-color};
+
+  --modal-background: #{$dark-modal-background};
+  --modal-header-background: #{$dark-modal-header-background};
+  --modal-box-shadow: #{$dark-modal-box-shadow};
+
+  --btn-accept-color: #{$dark-btn-accept-color};
+  --btn-decline-color: #{$dark-btn-decline-color};
+
+  --checkbox-bg-color: #{$dark-checkbox-bg-color};
+  --checkbox-box-shadow: #{$dark-checkbox-box-shadow};
+
+  // CALENDAR
+
+  --calendar-hover: rgba(1, 146, 49, 0.2);
+  --calendar-hover: rgba(255, 255, 255, 0.1);
+  --calendar-shadow: -0.5px 0.5px 0px 0px rgba(0, 0, 0, 0.5);
+  --calendar-active: #3b933f;
+  --calendar-day-number-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  --calendar-plate-hover-bg: rgba(59, 147, 63, 0.7);
+  --calendar-plate-active-bg: rgba(59, 147, 63, 0.7);
+
+  // DATEPICKER
+
+  --datepicker-bg: #{$dark-datepicker-bg};
+
+  // CREATE CONSULTATION
+
+  --btn-next-bg: #{$dark-btn-next-bg};
+  --btn-prev-bg: #{$dark-btn-prev-bg};
+
+  --indicator-bg: #{$dark-indicator-bg};
+  --indicator-active-bg: #{$dark-indicator-active-bg};
+
+  --input-disabled: #{$dark-input-disabled};
+}

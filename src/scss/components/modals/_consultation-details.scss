@@ -1,0 +1,35 @@
+#consultation-details-modal {
+    .title {
+        text-align: center;
+        margin-bottom: 0.5rem;
+
+        .icon {
+            font-size: 1.1rem; 
+        }
+
+        .value {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+
+    #informations {
+        .item {
+            .title {
+                font-size: 0.8rem;
+                font-weight: 400;
+            }
+
+            .icon {
+                font-size: 1rem;
+
+                background-color: var(--background);
+            }
+
+            .value {
+                font-size: 0.8rem;
+                font-weight: 300;
+            }
+        }
+    }
+}

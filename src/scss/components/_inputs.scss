@@ -1,0 +1,20 @@
+input, select, textarea {
+    background: var(--background) !important;
+    outline: none !important;
+    border: none !important;
+    font-size: 0.8rem !important;
+    font-weight: 300 !important;
+    box-shadow: -1px 1px 1px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+input:disabled, select:disabled, textarea:disabled {
+    color: var(--input-disabled) !important;
+}
+
+.form-floating>.form-control:focus~label::after {
+    background-color: var(--background) !important;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--theme-color) !important;
+}

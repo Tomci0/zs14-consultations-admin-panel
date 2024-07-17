@@ -1,0 +1,87 @@
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    flex-direction: row;
+    display: block;
+    margin-bottom: 0.5rem;
+
+    .card-header {
+        border: none;
+        font-weight: 400;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .link {
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .25rem;
+
+            font-weight: 300;
+            font-size: 0.7rem;
+            background-color: var(--notify-more-btn);
+            padding: 0.25rem 0.7rem;
+
+            &:hover {
+                background-color: var(--notify-more-hover-btn);
+            }
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .labels {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .title {
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+    }
+
+    .card-icon {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        margin: 1rem;
+
+        .icon {
+            color: var(--text-color);
+            font-size: 2rem;
+        }
+    }
+
+    .card-btn {
+        width: 100%;
+        font-size: 0.6rem;
+        padding: 0.1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--card-btn-bg);
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: var(--card-btn-hover-bg);
+        }
+    }
+
+    &.card-chart {
+        .card-body {
+            display: flex;
+            height: 30rem;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}

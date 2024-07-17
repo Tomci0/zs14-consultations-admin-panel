@@ -1,0 +1,13 @@
+.divdiver {
+    display: flex;
+    justify-content: center;
+
+    hr {
+        color: var(--text-color);
+        background-color: var(--divdiver-color);
+        height: 1px;
+        width: 80%;
+        margin: 0.40rem;
+        opacity: 0.5;
+    }
+}

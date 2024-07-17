@@ -1,0 +1,55 @@
+#consultation-checklist-modal {
+    #checklist {
+        display: flex;
+        flex-direction: column;
+
+        gap: 0.25rem;
+
+        list-style-type: none;
+        margin-right: 1.5rem;
+
+        .head {
+            font-weight: 400;
+
+            .name {
+                margin-left: 1rem;
+            }
+        }
+
+        .item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .check {
+                width: 30%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .name {
+                width: 70%;
+            }
+        }
+
+        input[type="checkbox"] {
+            appearance: none;
+            background-color: var(--checkbox-bg-color);
+            margin: 0;
+            color: #fff;
+            width: 1.15em;
+            height: 1.15em;
+            border: none;
+            box-shadow: var(--checkbox-box-shadow);
+            border-radius: 0.15rem;
+            transform: translateY(-0.075em);
+            content: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxZW0iIGhlaWdodD0iMWVtIiB2aWV3Qm94PSIwIDAgMjQgMjQiPjxwYXRoIGZpbGw9IndoaXRlIiBkPSJNMTkgNi40MUwxNy41OSA1TDEyIDEwLjU5TDYuNDEgNUw1IDYuNDFMMTAuNTkgMTJMNSAxNy41OUw2LjQxIDE5TDEyIDEzLjQxTDE3LjU5IDE5TDE5IDE3LjU5TDEzLjQxIDEyeiIvPjwvc3ZnPg==');
+        
+        
+            &:checked {
+                background-color: var(--theme-color);
+                content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M21 7L9 19l-5.5-5.5l1.41-1.41L9 16.17L19.59 5.59z'/%3E%3C/svg%3E");
+            }
+        }
+    }
+}

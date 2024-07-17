@@ -1,0 +1,125 @@
+/* 
+
+    Project Name: ZS 14 - Konsultacje
+    Author: Tomasz Magiera (https://tomcio.space)
+    Start Date: 29.05.2024
+
+
+    Contributors:
+        - Tomasz Magiera (https://github.com/tomci0)
+
+
+
+    Description:
+
+        - Jeśli edytujesz ten plik, dodaj swój wpis powyżej.
+        - Projekt ma na celu stworzenie systemu do zarządzania konsultacjami w szkole.
+        - Jest to projekt open-source, więc każdy może pomóc w jego rozwoju.
+
+        - Proszę opisywać zmiany, które wprowadzasz w projekcie.
+        - Proszę opisywać nowe rzezy, które dodajesz do projektu.
+
+*/
+
+
+/* 
+
+    FONTS
+
+*/
+
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+/*
+
+    THEMES
+
+*/
+
+@import 'themes/theme.dark';
+@import 'themes/theme.light';
+
+/*
+
+    COMPONENTS
+
+*/
+
+@import 'components/sidebar';
+@import 'components/topbar';
+@import 'components/dropdown';
+@import 'components/divdiver';
+@import 'components/card';
+@import 'components/modal';
+@import 'components/inputs';
+@import 'components/datepicker';
+
+
+/* 
+
+    BODY
+
+*/
+
+* {
+    user-select: none;
+}
+
+
+body {
+    font-family: "Roboto", sans-serif;
+
+
+    position: relative;    
+
+    display: flex;
+    color: var(--text-color);
+    transition: 0.2s;
+    font-style: normal;
+
+    font-weight: 300;
+    font-size: 13px;
+
+    min-height: 100vh;
+
+    background: var(--background);
+    background-size: cover; /* Skaluje obraz, aby w pełni zakryć obszar */
+    background-repeat: no-repeat; /* Zapobiega powtarzaniu obrazu */
+    background-attachment: fixed; /* Sprawia, że obraz jest stały przy przewijaniu */
+    background-position: center; /* Centruje obraz */
+}
+
+
+/*
+    
+    OTHER STYLES
+
+*/
+
+#content {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: auto;
+    transition: 0.5s;
+}
+
+#page-content {
+    padding: 0.75rem;
+    height: calc(100% - 4.7rem);
+
+    max-height: calc(100% - 4.7rem);
+    overflow: auto;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--text-color);
+
+    transition: 0.2s;
+}
+
+.w-80 {
+    width: 80%;
+}

@@ -1,0 +1,70 @@
+/* base/_theme.light.scss */
+
+/* Light Theme Variables */
+$light-text-color: #000000de;
+$light-text-secondary: #777777;
+$light-text-hover: #007bff;
+$light-btn-shadow: 0px 0px 4px 0px #ddd;
+$light-theme-color: #007bff !important;
+$light-background: #f8f9fa;
+$light-sidebar-bg: #e9ecef;
+$light-sidebar-shadow: inset 0px 1px 5px 0px #ddd;
+$light-divdiver-color: rgba(0, 0, 0, 0.2);
+$light-navigation-item-bg: #ffffff;
+$light-navigation-item-border-radius: 15px;
+$light-navigation-item-icon-bg: $light-sidebar-bg;
+$light-navigation-item-hover-bg: $light-theme-color;
+$light-navigation-item-active-bg: $light-theme-color;
+$light-navigation-item-shadow: $light-btn-shadow;
+$light-topbar-background: $light-background;
+$light-notify-dot: rgba(0, 123, 255, 0.8);
+$light-notify-icon-color: #000000de;
+$light-card-bg: #ffffff;
+$light-card-btn-bg: rgba(0, 123, 255, 0.2);
+$light-card-btn-hover-bg: rgba(0, 123, 255, 0.5);
+$light-card-item-bg: #f8f9fa;
+$light-card-item-shadow: -1px 1px 3px 0px rgba(0, 0, 0, 0.1);
+$light-card-item-hover-bg: rgba(0, 123, 255, 0.3);
+$light-dropdown-shadow: 0px 0px 4px 0px #ddd;
+$light-notify-more-btn: rgba(0, 123, 255, 0.3);
+$light-notify-more-hover-btn: rgba(0, 123, 255, 0.5);
+$light-notify-more-active-icon: rgba(0, 123, 255, 0.8);
+$light-notify-more-border-radius: 15px;
+$light-notification-item-bg: #ffffff;
+$light-notification-item-hover-bg: rgba(255, 255, 255, 0.6);
+$light-chart-track-color: rgba(0, 123, 255, 0.8);
+
+html[data-bs-theme="light"] {
+  --text-color: #{$light-text-color};
+  --text-secondary: #{$light-text-secondary};
+  --text-hover: #{$light-text-hover};
+  --btn-shadow: #{$light-btn-shadow};
+  --theme-color: #{$light-theme-color};
+  --background: #{$light-background};
+  --sidebar-bg: #{$light-sidebar-bg};
+  --sidebar-shadow: #{$light-sidebar-shadow};
+  --divdiver-color: #{$light-divdiver-color};
+  --navigation-item-bg: #{$light-navigation-item-bg};
+  --navigation-item-border-radius: #{$light-navigation-item-border-radius};
+  --navigation-item-icon-bg: #{$light-navigation-item-icon-bg};
+  --navigation-item-hover-bg: #{$light-navigation-item-hover-bg};
+  --navigation-item-active-bg: #{$light-navigation-item-active-bg};
+  --navigation-item-shadow: #{$light-navigation-item-shadow};
+  --topbar-background: #{$light-topbar-background};
+  --notify-dot: #{$light-notify-dot};
+  --notify-icon-color: #{$light-notify-icon-color};
+  --card-bg: #{$light-card-bg};
+  --card-btn-bg: #{$light-card-btn-bg};
+  --card-btn-hover-bg: #{$light-card-btn-hover-bg};
+  --card-item-bg: #{$light-card-item-bg};
+  --card-item-shadow: #{$light-card-item-shadow};
+  --card-item-hover-bg: #{$light-card-item-hover-bg};
+  --dropdown-shadow: #{$light-dropdown-shadow};
+  --notify-more-btn: #{$light-notify-more-btn};
+  --notify-more-hover-btn: #{$light-notify-more-hover-btn};
+  --notify-more-active-icon: #{$light-notify-more-active-icon};
+  --notify-more-border-radius: #{$light-notify-more-border-radius};
+  --notification-item-bg: #{$light-notification-item-bg};
+  --notification-item-hover-bg: #{$light-notification-item-hover-bg};
+  --chart-track-color: #{$light-chart-track-color};
+}
