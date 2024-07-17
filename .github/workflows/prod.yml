@@ -46,9 +46,11 @@ jobs:
           whoami
           echo Last sync: `date` > log.txt
           cd /home/deploy/tmp
+          rm -r dist
           npm install
           npm run build
 
           cd dist
           rm -r /var/www/zs14-admin
+          mkdir /var/www/zs14-admin
           cp * /var/www/zs14-admin
