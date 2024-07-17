@@ -45,7 +45,6 @@ jobs:
         script: |
           whoami
           echo Last sync: `date` > log.txt
-          cd /home/deploy/tmp/
+          cd /home/deploy/tmp
+          npm install
           npm run build
-          sudo rm -r /var/www/zs-14-admin/
-          cp /home/deploy/tmp/dist/ /var/www/zs14-admin/
