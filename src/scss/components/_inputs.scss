@@ -18,3 +18,7 @@ input:disabled, select:disabled, textarea:disabled {
 input[type="checkbox"]:checked {
     background-color: var(--theme-color) !important;
 }
+
+input.is-invalid, select.is-invalid, textarea.is-invalid {
+    outline: 1px solid #be0000c8 !important;
+}

@@ -11,7 +11,7 @@
 
 
     <link rel="stylesheet" href="/css/main.min.css">
-    <link rel="stylesheet" href="/css/pages/class.min.css">
+    <link rel="stylesheet" href="/css/pages/user.min.css">
 
 </head>
 <body>
@@ -32,11 +32,11 @@
                         <div class="card-body">
                             <div class="labels">
                                 <span class="title">
-                                    Klasa
+                                    Imię i Nazwisko
                                 </span>
                                 <span class="value">
                                     <a href="#" class="link">
-                                        3a
+                                        Jan Kowalski
                                     </a>
                                 </span>
                             </div>
@@ -52,10 +52,10 @@
                         <div class="card-body">
                             <div class="labels">
                                 <span class="title">
-                                    Ostatnie Logowanie
+                                    Klasa
                                 </span>
                                 <span class="value">
-                                    03.10.2021r. 12:00
+                                    3A
                                 </span>
                             </div>
                             <div class="card-icon">
@@ -73,38 +73,36 @@
                             Najblizsze Konsultacje
                         </div>
                         <div class="card-body">
-                            <div id="userlist">
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
+                            <ul id="today-consultations">
+
+                                <li class="item" data-bs-target="#consultation-details-modal" data-bs-toggle="modal">
+                                    <div class="row w-100 align-items-center">
+                                        <div class="d-none d-md-flex col-3">
+                                            <div class="image">
+                                                <span class="icon iconify" data-icon="mdi:person"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-8 col-md-6">
+                                            <div class="data">
+                                                <div class="title">Konsultacje Z Matematyki</div>
+                                                <div class="date">Dzisiaj, 12:15</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 col-lg-3 d-flex justify-content-end">
+                                            <div class="values">
+                                                <div class="value">
+                                                    <span class="icon iconify" data-icon="mdi:door"></span>
+                                                    <span class="value">35</span>
+                                                </div>
+                                                <div class="value">
+                                                    <span class="icon iconify" data-icon="mdi:building"></span>
+                                                    <span class="value">Szanajcy 14/16</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
-                                    </div>
-                                </div>
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
-                                    </div>
-                                </div>
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
-                                    </div>
-                                </div>
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
-                                    </div>
-                                </div>
-                                <div class="user">
-                                    <div id="info">
-                                        <span class="user-name">Jan Kowalski</span>
-                                    </div>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>

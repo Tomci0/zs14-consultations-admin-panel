@@ -1,387 +1,403 @@
-const livereload = require('connect-livereload');
-const webpackConfig = require('./webpack.config');
-
-
+const livereload = require("connect-livereload");
+const webpackConfig = require("./webpack.config");
 
 module.exports = function (grunt) {
-    grunt.config.init({
-        pkg: grunt.file.readJSON('package.json'),
+  grunt.config.init({
+    pkg: grunt.file.readJSON("package.json"),
 
-        ts: {
-            default: {
-                tsconfig: './tsconfig.json'
-            }
-        },
-
-        /*
-        *
-        *   DEFAULT OPTIONS
-        *
-        */
-
-        // watch
-
-        watch: {
-            options: {
-                livereload: true, // enable liveserver
-            },
-        },
-
-
-
-
-        /*
-        *
-        *   CONNECT
-        *   Description: Create webserver for livereload
-        * 
-        */
-
-        connect: {
-            dev: {
-                options: {
-                    port: 8000,
-                    base: 'dist',
-                    protocol: 'http',
-                    hostname: 'localhost',
-                    livereload: 35729,
-
-                    open: {
-                        appName: 'open',
-                    }
-                },
-            }
-        },
-
-        /*
-        *
-        *   COPY
-        *   Description: Copies images from src to dist
-        *   To-Do: Minify images
-        * 
-        */
-
-        copy: {
-            default: {
-                expand: true,
-                cwd: 'src/images',
-                src: '**',
-                dest: 'dist/images',
-            },
-            dev: {
-                expand: true,
-                cwd: 'tmp/css',
-                src: '**/*.css',
-                dest: 'dist/css'
-            }
-        },
-
-        /*
-        *
-        *   CLEAN
-        *   Description: Clear all temp files
-        * 
-        */
-
-
-        clean: {
-            build: {
-                src: ['tmp']
-            }
-        },
-
-
-        /*
-        *
-        *   HTML - ACTIONS
-        *   Description: Minfy html.
-        * 
-        */
-
-        // INCLUDE FILES TO HTML
-
-        includereplace: {
-            dev: {
-                options: {
-                    prefix: '<!-- @@',
-                    suffix: ' -->',
-                    includesDir: 'src/pages/components/'
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'src',
-                    src: 'pages/*.html',
-                    dest: 'tmp'
-                }]
-            }
-        },
-
-        // MINFY HTML
-
-        htmlmin: {                                     
-            build: {
-                options: {                                 
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'tmp/pages',
-                    src: '**/*.html',
-                    dest: 'dist'
-                }]
-            },
-            dev: {                                       
-                files: [{
-                    expand: true,
-                    cwd: 'tmp/pages',
-                    src: '**/*.html',
-                    dest: 'dist'
-                }]
-            }
-        },
-
-
-        /*
-        *
-        *   SASS
-        *   Description: Complie sass to css and minfy
-        * 
-        */
-
-        // COMPLITE SASS TO CSS
-
-        sass: {
-            dist: {
-                options: {
-                    sourcemap: 'none'
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'src/scss',
-                    src: ['**/**/*.scss'],
-                    dest: 'tmp/css',
-                    ext: '.css'
-                }]
-            }
-        },
-
-        // PROCCESSING CSS
-
-        postcss: {
-            options: {
-                map: false,
-                processors: [
-                    require('autoprefixer')()
-                ]
-            },
-            dist: {
-                src: 'tmp/css/main.css'
-            }
-        },
-
-        // MINFY CSS
-
-        cssmin: { 
-            build: {
-                files: [{
-                    expand: true,
-                    cwd: 'tmp/css',
-                    src: ['*.css', '!*.min.css', 'pages/**/*.css'],
-                    dest: 'dist/css',
-                    ext: '.min.css'
-                }]
-            }
-        },
-
-        /*
-        *
-        *   TYPESCRIPT
-        *   Description: Build Typescript
-        * 
-        */
-
-        typescript: {
-            base: {
-                src: ['src/tsc/**/*.ts'],
-                dest: 'tmp/tsc',
-                options: {
-                    module: 'amd', //or commonjs
-                    target: 'es5', //or es3
-                    rootDir: 'src/tsc',
-                    sourceMap: false,
-                    declaration: true
-                }
-            }
-        },
-
-
-        /*
-        *
-        *   JAVASCRIPT
-        *   Description: Minfy and create bundle of js.
-        * 
-        */
-
-        // Minfy and bundle js.
-
-        uglify: {
-            pages: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/js/pages/',
-                    src: '**/*.js',
-                    dest: 'dist/js/pages/',
-                    ext: '.min.js',
-                    rename: function (dest, src) {
-                        const folder = src.split('/')[0];
-                        return `${dest}${folder}.min.js`;
-                    },
-                }]
-            },
-            main: {
-                files: {
-                    'dist/js/main.min.js': [
-                        'src/js/main.js',
-                        'src/js/components/*.js'
-                    ]
-                }
-            },
-            libs: {
-                files: [{
-                    expand: true,
-                    cwd: 'src/js/libs/',
-                    src: '*.js',
-                    dest: 'dist/js/',
-                    ext: '.min.js',
-                }]
-            },
-        },
-    });
-
+    ts: {
+      default: {
+        tsconfig: "./tsconfig.json",
+      },
+    },
 
     /*
-    *
-    *   WATCH
-    * 
-    */
+     *
+     *   DEFAULT OPTIONS
+     *
+     */
 
-    // HTML
+    // watch
 
-    grunt.config.merge({
-        watch: {
-            html: {
-                files: [
-                    'src/pages/**/*.html',
-                ],
-                tasks: ['includereplace', 'htmlmin']
-            },
+    watch: {
+      options: {
+        livereload: true, // enable liveserver
+      },
+    },
+
+    /*
+     *
+     *   CONNECT
+     *   Description: Create webserver for livereload
+     *
+     */
+
+    connect: {
+      dev: {
+        options: {
+          port: 8080,
+          base: "dist",
+          protocol: "http",
+          hostname: "0.0.0.0",
+          livereload: 35729,
+
+          open: {
+            appName: "open",
+          },
         },
-    });
+      },
+    },
 
-    // TYPESCRIPT
+    /*
+     *
+     *   COPY
+     *   Description: Copies images from src to dist
+     *   To-Do: Minify images
+     *
+     */
 
-    // JAVASCRIPT
+    copy: {
+      default: {
+        expand: true,
+        cwd: "src/images",
+        src: "**",
+        dest: "dist/images",
+      },
+      dev: {
+        expand: true,
+        cwd: "tmp/css",
+        src: "**/*.css",
+        dest: "dist/css",
+      },
 
-    grunt.config.merge({
-        watch: {
-            scripts: {
-                files: [
-                    'src/js/**/**/*.js',
-                ],
-                tasks: ['uglify']
+      // Descrtiption: Copy files from data to dist
+
+      data: {
+        expand: true,
+        cwd: "src/data",
+        src: "**",
+        dest: "dist/data",
+      },
+    },
+
+    /*
+     *
+     *   CLEAN
+     *   Description: Clear all temp files
+     *
+     */
+
+    clean: {
+      build: {
+        src: ["tmp"],
+      },
+    },
+
+    /*
+     *
+     *   HTML - ACTIONS
+     *   Description: Minfy html.
+     *
+     */
+
+    // INCLUDE FILES TO HTML
+
+    includereplace: {
+      dev: {
+        options: {
+          prefix: "<!-- @@",
+          suffix: " -->",
+          includesDir: "src/pages/components/",
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "src",
+            src: "pages/*.html",
+            dest: "tmp",
+          },
+        ],
+      },
+    },
+
+    // MINFY HTML
+
+    htmlmin: {
+      build: {
+        options: {
+          removeComments: true,
+          collapseWhitespace: true,
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "tmp/pages",
+            src: "**/*.html",
+            dest: "dist",
+          },
+        ],
+      },
+      dev: {
+        files: [
+          {
+            expand: true,
+            cwd: "tmp/pages",
+            src: "**/*.html",
+            dest: "dist",
+          },
+        ],
+      },
+    },
+
+    /*
+     *
+     *   SASS
+     *   Description: Complie sass to css and minfy
+     *
+     */
+
+    // COMPLITE SASS TO CSS
+
+    sass: {
+      dist: {
+        options: {
+          sourcemap: "none",
+        },
+        files: [
+          {
+            expand: true,
+            cwd: "src/scss",
+            src: ["**/**/*.scss"],
+            dest: "tmp/css",
+            ext: ".css",
+          },
+        ],
+      },
+    },
+
+    // PROCCESSING CSS
+
+    postcss: {
+      options: {
+        map: false,
+        processors: [require("autoprefixer")()],
+      },
+      dist: {
+        src: "tmp/css/main.css",
+      },
+    },
+
+    // MINFY CSS
+
+    cssmin: {
+      build: {
+        files: [
+          {
+            expand: true,
+            cwd: "tmp/css",
+            src: ["*.css", "!*.min.css", "pages/**/*.css"],
+            dest: "dist/css",
+            ext: ".min.css",
+          },
+        ],
+      },
+    },
+
+    /*
+     *
+     *   TYPESCRIPT
+     *   Description: Build Typescript
+     *
+     */
+
+    typescript: {
+      base: {
+        src: ["src/tsc/**/*.ts"],
+        dest: "tmp/tsc",
+        options: {
+          module: "amd", //or commonjs
+          target: "es5", //or es3
+          rootDir: "src/tsc",
+          sourceMap: false,
+          declaration: true,
+        },
+      },
+    },
+
+    /*
+     *
+     *   JAVASCRIPT
+     *   Description: Minfy and create bundle of js.
+     *
+     */
+
+    // Minfy and bundle js.
+
+    uglify: {
+      pages: {
+        files: [
+          {
+            expand: true,
+            cwd: "src/js/pages/",
+            src: "**/*.js",
+            dest: "dist/js/pages/",
+            ext: ".min.js",
+            rename: function (dest, src) {
+              const folder = src.split("/")[0];
+              return `${dest}${folder}.min.js`;
             },
-        }
-    });
+          },
+        ],
+      },
+      main: {
+        files: {
+          "dist/js/main.min.js": ["src/js/main.js", "src/js/components/*.js"],
+        },
+      },
+      libs: {
+        files: [
+          {
+            expand: true,
+            cwd: "src/js/libs/",
+            src: "*.js",
+            dest: "dist/js/",
+            ext: ".min.js",
+          },
+        ],
+      },
+    },
+  });
 
-    // SCSS
+  /*
+   *
+   *   WATCH
+   *
+   */
 
-    grunt.config.merge({
-        watch: {
-            scss: {
-                files: [
-                    'src/scss/**/*.scss',
-                ],
-                tasks: ['sass', 'postcss', 'cssmin', 'copy'],
-                options: {
-                    nospawn: false,
-                    spawn: false
-                }
-            },
-        }
-    });
+  // HTML
 
-    /*
-    *
-    *   TYPESCRIPT
-    *   TO-DO: REWRITE JS TO TYPESCRIPT
-    * 
-    */
+  grunt.config.merge({
+    watch: {
+      html: {
+        files: ["src/pages/**/*.html"],
+        tasks: ["includereplace", "htmlmin"],
+      },
+    },
+  });
 
-    // grunt.config.merge({
-    //     webpack: {
-    //         options: {
-    //             stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
-    //         },
-    //         prod: webpackConfig,
-    //         dev: Object.assign({ watch: true }, webpackConfig),
-    //     },
-    // });
+  // JAVASCRIPT
 
-    
+  grunt.config.merge({
+    watch: {
+      scripts: {
+        files: ["src/js/**/**/*.js"],
+        tasks: ["uglify"],
+      },
+    },
+  });
 
+  // SCSS
 
-    /*
-    *
-    *   LOAD GRUNT PLUGINS
-    * 
-    */
+  grunt.config.merge({
+    watch: {
+      scss: {
+        files: ["src/scss/**/*.scss"],
+        tasks: ["sass", "postcss", "cssmin", "copy"],
+        options: {
+          nospawn: false,
+          spawn: false,
+        },
+      },
+    },
+  });
 
-    grunt.loadNpmTasks('grunt-contrib-watch');
+  // JSON
 
-    // SASS
+  grunt.config.merge({
+    watch: {
+      data: {
+        files: ["src/data/**/**"],
+        tasks: ["copy:data"],
+      },
+    },
+  });
 
-    grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-postcss');
-    grunt.loadNpmTasks('grunt-contrib-cssmin');
+  /*
+   *
+   *   TYPESCRIPT
+   *   TO-DO: REWRITE JS TO TYPESCRIPT
+   *
+   */
 
-    // JS
+  // grunt.config.merge({
+  //     webpack: {
+  //         options: {
+  //             stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development',
+  //         },
+  //         prod: webpackConfig,
+  //         dev: Object.assign({ watch: true }, webpackConfig),
+  //     },
+  // });
 
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+  /*
+   *
+   *   LOAD GRUNT PLUGINS
+   *
+   */
 
-    // HTML
+  grunt.loadNpmTasks("grunt-contrib-watch");
 
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
-    grunt.loadNpmTasks('grunt-include-replace');
+  // SASS
 
-    // WEBSERVER
+  grunt.loadNpmTasks("grunt-contrib-sass");
+  grunt.loadNpmTasks("grunt-postcss");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
 
-    grunt.loadNpmTasks('grunt-contrib-connect');
+  // JS
 
-    // OTHER DEV LOGIC
+  grunt.loadNpmTasks("grunt-contrib-uglify");
 
-    grunt.loadNpmTasks('grunt-contrib-clean');
-    grunt.loadNpmTasks('grunt-open');
-    grunt.loadNpmTasks('grunt-reload');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-ts');
+  // HTML
 
-    // grunt.loadNpmTasks('grunt-webpack');
+  grunt.loadNpmTasks("grunt-contrib-htmlmin");
+  grunt.loadNpmTasks("grunt-include-replace");
 
-    
-    /*
-    *
-    *   REGISTER TASKS 
-    * 
-    */
+  // WEBSERVER
 
+  grunt.loadNpmTasks("grunt-contrib-connect");
 
-    // DEV
-    // INCL. WEBSERVER & LIVERELOAD
+  // OTHER DEV LOGIC
 
-    grunt.registerTask('dev', ['build:dev', 'connect:dev', 'watch']);
+  grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-open");
+  grunt.loadNpmTasks("grunt-reload");
+  grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-ts");
 
-    // BUILD FILES to DIST
+  // grunt.loadNpmTasks('grunt-webpack');
 
-    grunt.registerTask('build', ['uglify', 'sass', 'postcss', 'cssmin', 'copy', 'includereplace', 'htmlmin:build', 'clean:build']);
+  /*
+   *
+   *   REGISTER TASKS
+   *
+   */
+
+  // DEV
+  // INCL. WEBSERVER & LIVERELOAD
+
+  grunt.registerTask("dev", ["build:dev", "connect:dev", "watch"]);
+
+  // BUILD FILES to DIST
+
+  grunt.registerTask("build", [
+    "uglify",
+    "sass",
+    "postcss",
+    "cssmin",
+    "copy",
+    "copy:data",
+    "includereplace",
+    "htmlmin:build",
+    "clean:build",
+  ]);
 };

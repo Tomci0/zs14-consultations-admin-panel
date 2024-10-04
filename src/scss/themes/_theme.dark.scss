@@ -5,7 +5,7 @@ $dark-text-color: #ffffffde;
 $dark-text-secondary: #404040;
 $dark-text-hover: #2fa255;
 $dark-btn-shadow: -1px 1px 5px 0px #0000004f;
-$dark-theme-color: #019232 !important;
+$dark-theme-color: #019232;
 $dark-background: #191919;
 $dark-sidebar-bg: #232323;
 $dark-sidebar-shadow: inset 0px 1px 5px 0px #000;
@@ -54,6 +54,8 @@ $dark-indicator-bg: #191919;
 $dark-indicator-active-bg: #{$dark-theme-color};
 
 $dark-input-disabled: rgba($dark-text-color, 0.6);
+
+$dark-add-user-btn-hover: rgba($dark-theme-color, 0.3);
 
 html[data-bs-theme="dark"] {
   --text-color: #{$dark-text-color};
@@ -123,4 +125,8 @@ html[data-bs-theme="dark"] {
   --indicator-active-bg: #{$dark-indicator-active-bg};
 
   --input-disabled: #{$dark-input-disabled};
+
+  // 
+
+  --add-user-btn-hover: #{$dark-add-user-btn-hover};
 }
