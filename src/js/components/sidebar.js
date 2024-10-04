@@ -1,5 +1,6 @@
 $(() => {
     console.log('All component loaded');
+
     const $sidebar = $('#sidebar');
     const $content = $('#content');
     const $hideMenuBtn = $('#hide-menu .btn');
@@ -29,6 +30,10 @@ $(() => {
             toggleSidebar();
         }
     });
+
+    if ($(window).width() < 768) {
+        $sidebar.addClass('hide').addClass('d-none');
+    }
 });
 
 const isElementLoaded = async selector => {
