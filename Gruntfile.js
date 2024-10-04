@@ -1,6 +1,5 @@
 const livereload = require("connect-livereload");
 const webpackConfig = require("./webpack.config");
-
 module.exports = function (grunt) {
   grunt.config.init({
     pkg: grunt.file.readJSON("package.json"),
